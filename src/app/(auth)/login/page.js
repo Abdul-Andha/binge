@@ -2,11 +2,13 @@
 import { login } from "./actions";
 import { useState } from "react";
 import { Button, Form, Input } from "antd";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [user, setUser] = useState(null);
+  const router = useRouter();
 
   const handleSubmit = async (values) => {
     setLoading(true);
@@ -15,6 +17,7 @@ export default function Login() {
       setUser(data);
       setLoading(false);
       setError(null);
+      router.push("/home")
     } catch (error) {
       setError(error);
       setLoading(false);
