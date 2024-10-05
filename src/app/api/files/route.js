@@ -7,10 +7,10 @@ export const config = {
   },
 };
 
-export async function POST(request: NextRequest) {
+export async function POST(request) {
   try {
     const data = await request.formData();
-    const file: File | null = data.get("file") as unknown as File;
+    const file = data.get("file");
     const uploadData = await pinata.upload.file(file)
     const url = await pinata.gateways.createSignedURL({
 		cid: uploadData.cid,

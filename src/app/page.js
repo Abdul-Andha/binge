@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 
 export default function Home() {
-  const [file, setFile] = useState<File>();
+  const [file, setFile] = useState();
   const [url, setUrl] = useState("");
   const [uploading, setUploading] = useState(false);
 
@@ -32,7 +32,7 @@ export default function Home() {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e) => {
     setFile(e.target?.files?.[0]);
   };
 
