@@ -15,6 +15,7 @@ export default function Signup() {
       setUser(data);
       setLoading(false);
       setError(null);
+      router.push("/home")
     } catch (error) {
       setError(error);
       setLoading(false);
