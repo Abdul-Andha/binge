@@ -11,8 +11,8 @@ export default function Layout({ children }) {
     useEffect(() => {
         async function checkIfUserExists() {
             const user = await checkUser();
-            if(user === false){
-                console.log("error:", data.error)
+            if (user === false) {
+                console.log("error:", user);
                 router.push("/login")
             }
             else {
@@ -21,15 +21,15 @@ export default function Layout({ children }) {
         }
 
         checkIfUserExists();
-      }, []);
+    }, []);
 
-      if (isLoading) {
+    if (isLoading) {
         return (
-          <div className="w-full h-screen flex justify-center items-center">
-            Loading...
-          </div>
+            <div className="w-full h-screen flex justify-center items-center">
+                Loading...
+            </div>
         );
-      }
+    }
 
 
     return (
