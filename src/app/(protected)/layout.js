@@ -1,29 +1,25 @@
 "use client"
 // Want to make any page under this folder (protected) not be accessible by non-users
-import { supabase } from "@/lib/supabaseClient";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { checkUser } from "./actions";
 
 export default function Layout({ children }) {
     const [isLoading, setIsLoading] = useState(true);
-    const router = useRouter();
 
     useEffect(() => {
-        const checkUser = async () => {
-          const { data, error } = await supabase.auth.getUser();
-    
-          if (error) {
-            console.error("Error fetching user:", error.message);
-            router.push("/login");
-          } else if (!data.user) {
-            router.push("/login");
-          } else {
-            setIsLoading(false);
-          }
-        };
-    
-        checkUser();
-      }, [router]);
+        async function checkIfUserExists() {
+            const user = await checkUser();
+            
+            if(user === false){
+                console.log("error:", data.error)
+            }
+            else {
+                setIsLoading(false);
+            }
+        }
+
+        checkIfUserExists();
+      }, []);
 
       if (isLoading) {
         return (
