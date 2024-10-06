@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { handleLogout } from "./actions";
 import { useRouter } from "next/navigation";
 import { Layout, Menu, Avatar } from "antd";
+import Navbar from "../components/Navbar";
 import {
   UserOutlined,
   SettingOutlined,

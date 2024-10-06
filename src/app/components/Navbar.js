@@ -59,7 +59,7 @@ export default function Navbar({ router }) {
     setOpen(false);
   };
   return (
-    <div className="w-full h-5 flex flex-row justify-between mb-10">
+    <div className="w-full h-5 flex flex-row justify-between mt-2 mb-10">
       <div className="flex flex-row justify-center items-center gap-x-1.5 text-purple-800">
         <img src={imageURL} width={36} /> BINGE
       </div>
