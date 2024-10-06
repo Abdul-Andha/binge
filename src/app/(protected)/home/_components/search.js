@@ -21,7 +21,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="w-full max-w-md mt-4">
+    <div className="w-96 max-w-md mt-4">
       <Search
         placeholder="Search"
         onSearch={handleSearch}

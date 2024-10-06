@@ -2,6 +2,7 @@
 
 import React from 'react';
 import SearchBar from './_components/search';
+import Trending from './_components/trending';
 
 export default function Home() {
     return (
@@ -9,6 +10,7 @@ export default function Home() {
             <div>Navbar goes here</div>
 
             <SearchBar />
+            <Trending />
         </div>
     );
 }
