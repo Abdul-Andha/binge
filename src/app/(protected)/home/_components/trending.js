@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, use } from 'react';
 import { getTrending } from './../actions';
 import PodcastItem from './podcastItem';
 
@@ -18,6 +18,10 @@ const Trending = () => {
 
         fetchTrending();
     }, []);
+
+    useEffect(() => {
+        console.log(trending);
+    }, [trending]);
 
     return (
         <div className="w-96 max-w-md mt-4">

@@ -55,9 +55,8 @@ export default function ProtectedLayout({ children }) {
           // Set Trigger to an icon
           trigger={
             <div
-              className={`absolute bottom-2 ${
-                mobile ? "left-6" : "left-52"
-              } text-black`}
+              className={`absolute bottom-2 ${mobile ? "left-6" : "left-52"
+                } text-black`}
             >
               Close
             </div>
