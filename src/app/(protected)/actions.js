@@ -9,6 +9,6 @@ export const checkUser = async () => {
   } else if (!data.user) {
     return false;
   } else {
-    return true;
+    return data.user;
   }
 };
