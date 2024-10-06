@@ -11,6 +11,7 @@
   "dependencies": {
     "@ant-design/icons": "^5.5.1",
     "@supabase/supabase-js": "^2.45.4",
+    "agora-rtc-sdk-ng": "latest",
     "antd": "^5.21.2",
     "next": "14.2.14",
     "pinata": "^1.5.0",
