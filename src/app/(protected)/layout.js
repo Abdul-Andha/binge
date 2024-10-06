@@ -12,6 +12,7 @@ import {
   LogoutOutlined,
 } from "@ant-design/icons";
 import { useUserContext } from "../context/userAuth";
+import { PlaybackControls } from "./components/playback-controls";
 
 const { Sider, Content } = Layout;
 
@@ -44,11 +45,11 @@ export default function ProtectedLayout({ children }) {
 
   return (
     user && (
-      <Layout className="overflow-hidden min-h-screen bg-white" hasSider>
+      <Layout className="overflow-hidden h-[calc(100vh-16px)] bg-white" hasSider>
         <Sider
           breakpoint="sm"
           collapsedWidth={0}
-          className="SideNav h-screen fixed left-0 top-0 bottom-0"
+          className="SideNav h-[calc(100vh-8px)] fixed left-0 top-0 bottom-0"
           collapsible
           collapsed={mobile}
           onCollapse={() => setMobile(!mobile)}
@@ -92,9 +93,12 @@ export default function ProtectedLayout({ children }) {
           style={{
             marginInlineStart: mobile ? 0 : 200,
           }}
+          className={`${mobile ? "w-screen" : "min-w-[calc(100vw - 200px)]"}`}
         >
-          <Content className="h-screen bg-white">{children}</Content>
-          <div className="max-h-40 pb-10 bg-black"></div>
+          <Content className={`h-screen ${mobile ? "w-screen" : "min-w-[calc(100vw - 200px)]"} relative bg-white`}>
+            {children}
+            <PlaybackControls />
+          </Content>
         </Layout>
       </Layout>
     )
