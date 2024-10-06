@@ -14,16 +14,6 @@ import {
 
 const { Sider, Content } = Layout;
 
-    useEffect(() => {
-        async function checkIfUserExists() {
-            const user = await checkUser();
-            if(user === false){
-                router.push("/login")
-            }
-            else {
-                setIsLoading(false);
-            }
-        }
 const items = [
   {
     key: "2",
