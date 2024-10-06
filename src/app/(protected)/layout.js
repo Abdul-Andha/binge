@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { checkUser } from "./actions";
 import { useRouter } from "next/navigation";
 import { Layout, Menu, Avatar } from "antd";
-import { AudioPlayer } from "newskit"
 import {
   UserOutlined,
   SettingOutlined,
@@ -74,9 +73,8 @@ export default function ProtectedLayout({ children }) {
         // Set Trigger to an icon
         trigger={
           <div
-            className={`absolute bottom-2 ${
-              mobile ? "left-6" : "left-52"
-            } text-black`}
+            className={`absolute bottom-2 ${mobile ? "left-6" : "left-52"
+              } text-black`}
           >
             Close
           </div>
@@ -85,18 +83,18 @@ export default function ProtectedLayout({ children }) {
         <div className="flex flex-col max-w-[200px]">
           <div className="flex gap-2 m-4">
             <div className="min-w-[64px]">
-                <Avatar
+              <Avatar
                 size={64}
                 icon={<UserOutlined />}
-                />
+              />
             </div>
             <div className="flex flex-col gap-2 justify-center max-w-[100px]">
-                <p className="text-lg text-black font-medium ">
+              <p className="text-lg text-black font-medium ">
                 {user.user_metadata.name}
-                </p>
-                <p className="text-sm text-black/70 truncate">
+              </p>
+              <p className="text-sm text-black/70 truncate">
                 {user.email}
-                </p>
+              </p>
             </div>
           </div>
           <Menu theme="light" mode="inline" items={items} />
@@ -108,9 +106,8 @@ export default function ProtectedLayout({ children }) {
         }}
       >
         <Content className="h-screen bg-white">{children}</Content>
-      <div className = "max-h-40 pb-10 bg-black">
-        <AudioPlayer src={"https://teal-immediate-lemming-619.mypinata.cloud/files/bafybeieonk542hkdm252ycxznk62xtvqzrckuoh5sprj7iwcngnc6fayea?X-Algorithm=PINATA1&X-Date=1728204983&X-Expires=30&X-Method=GET&X-Signature=74b84d2503d155c61d690548e2b012ce3c6a8a57da5aa9344640967b59eb9f4f"}/>
-      </div>
+        <div className="max-h-40 pb-10 bg-black">
+        </div>
       </Layout>
     </Layout>
   );
