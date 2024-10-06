@@ -2,11 +2,12 @@
 import { signup } from "./actions";
 import { useState } from "react";
 import { Button, Form, Input } from "antd";
+import { useUserContext } from "@/app/context/userAuth";
 
 export default function Signup() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [user, setUser] = useState(null);
+  const { setUser } = useUserContext();
 
   const handleSubmit = async (values) => {
     setLoading(true);
