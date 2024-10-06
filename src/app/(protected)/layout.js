@@ -12,7 +12,6 @@ export default function Layout({ children }) {
         async function checkIfUserExists() {
             const user = await checkUser();
             if(user === false){
-                console.log("error:", data.error)
                 router.push("/login")
             }
             else {

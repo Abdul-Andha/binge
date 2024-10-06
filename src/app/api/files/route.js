@@ -16,7 +16,7 @@ export async function POST(request) {
 		cid: uploadData.cid,
 		expires: 3600,
 	});
-    return NextResponse.json(url, { status: 200 });
+    return NextResponse.json({url:url, cid:uploadData.cid}, { status: 200 });
   } catch (e) {
     console.log(e);
     return NextResponse.json(
