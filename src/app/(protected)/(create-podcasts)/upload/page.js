@@ -71,7 +71,7 @@ export default function UploadPodcast(){
     const props = {
       name: "file",
       multiple: false,
-      action: "/api/files",
+      action: "/api/files/upload",
       accept:
         "mp3, wav, aac, flac, alac, ogg, wma, aiff, pcm, opus, amr, atrac, dts, dsd, midi, m4a",
       multiple: false,

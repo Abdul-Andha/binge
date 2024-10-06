@@ -72,7 +72,7 @@ const Page = () => {
   const props = {
     name: "file",
     multiple: false,
-    action: "/api/files",
+    action: "/api/files/upload",
     accept:
       "jpg, jpeg, png, gif, bmp, tiff, svg, webp, heif, heic, raw, ico, psd, eps",
     multiple: false,

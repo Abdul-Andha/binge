@@ -6,7 +6,7 @@ export async function uploadToPinata(blob) {
     const formData = new FormData();
     formData.append("file", blob, title + ".webm");
     console.log('uploading', formData);
-    const uploadResponse = await fetch('/api/files', {
+    const uploadResponse = await fetch('/api/files/upload', {
       method: 'POST',
       body: formData,
     });
