@@ -12,7 +12,7 @@ import {
   LogoutOutlined,
 } from "@ant-design/icons";
 import { useUserContext } from "../context/userAuth";
-import Navbar from "../components/Navbar";
+import { PlaybackControls } from "./components/playback-controls";
 const { Sider, Content } = Layout;
 const imageURL =
   "https://img.icons8.com/?size=100&id=4CvT2ue9OxHQ&format=png&color=000000";
@@ -55,7 +55,10 @@ export default function ProtectedLayout({ children }) {
         hasSider
       >
         <Navbar router={router} />
-        <Content style={{width:"100%", height:"calc(100vh-20px)"}} className="bg-white">{children}</Content>
+        <Content style={{width:"100%", height:"calc(100vh-20px)"}} className="bg-white">
+          {children}
+          <PlaybackControls />
+        </Content>
       </Layout>
     )
   );

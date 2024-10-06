@@ -2,6 +2,7 @@
 import Navbar from "./components/Navbar";
 import { UserProvider } from "./context/userAuth";
 import "./globals.css";
+import { PlaybackProvider } from "./context/playbackContext";
 
 export default function RootLayout({ children }) {
   return (
@@ -11,7 +12,9 @@ export default function RootLayout({ children }) {
       >
         {/* <Navbar/> */}
         <UserProvider>
+        <PlaybackProvider>
           {children}
+          </PlaybackProvider>
         </UserProvider>
       </body>
     </html>
