@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { checkUser } from "./actions";
 import { useRouter } from "next/navigation";
 import { Layout, Menu, Avatar } from "antd";
+import { AudioPlayer } from "newskit"
 import {
   UserOutlined,
   SettingOutlined,
@@ -62,7 +63,7 @@ export default function ProtectedLayout({ children }) {
   }
 
   return (
-    <Layout className="overflow-hidden max-h-screen bg-white" hasSider>
+    <Layout className="overflow-hidden min-h-screen bg-white" hasSider>
       <Sider
         breakpoint="sm"
         collapsedWidth={0}
@@ -107,6 +108,9 @@ export default function ProtectedLayout({ children }) {
         }}
       >
         <Content className="h-screen bg-white">{children}</Content>
+      <div className = "max-h-40 pb-10 bg-black">
+        <AudioPlayer src={"https://teal-immediate-lemming-619.mypinata.cloud/files/bafybeieonk542hkdm252ycxznk62xtvqzrckuoh5sprj7iwcngnc6fayea?X-Algorithm=PINATA1&X-Date=1728204983&X-Expires=30&X-Method=GET&X-Signature=74b84d2503d155c61d690548e2b012ce3c6a8a57da5aa9344640967b59eb9f4f"}/>
+      </div>
       </Layout>
     </Layout>
   );

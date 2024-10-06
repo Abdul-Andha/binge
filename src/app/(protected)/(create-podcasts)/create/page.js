@@ -10,9 +10,9 @@ const Page = () => {
   const [file, setFile] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [episodeForm, setEpisodeForm] = useState({
-    episodeName: "",
-    episodeDescription: "",
-    file_cid: "",
+    podcastName: "",
+    podcastDescription: "",
+    thumbnail_cid: "",
   });
 
   function handleOnFormChange(event) {
@@ -43,6 +43,7 @@ const Page = () => {
   const submitEpisode = async () => {
     console.log(file);
     await uploadFile();
+
   };
   const uploadFile = async () => {
     try {
@@ -54,11 +55,12 @@ const Page = () => {
       setUploading(true);
       const data = new FormData();
       data.set("file", file);
-      const uploadRequest = await fetch("/api/files", {
+      const uploadRequest = await fetch("/api/files/upload", {
         method: "POST",
         body: data,
       });
       const signedUrl = await uploadRequest.json();
+      console.log(signedUrl)
       setUploading(false);
     } catch (e) {
       console.log(e);
@@ -72,7 +74,7 @@ const Page = () => {
     multiple: false,
     action: "/api/files",
     accept:
-      "mp3, wav, aac, flac, alac, ogg, wma, aiff, pcm, opus, amr, atrac, dts, dsd, midi, m4a",
+      "jpg, jpeg, png, gif, bmp, tiff, svg, webp, heif, heic, raw, ico, psd, eps",
     multiple: false,
     beforeUpload: (file) => {
       setFile(file);
@@ -93,17 +95,17 @@ const Page = () => {
           placeholder="Autosize height based on content lines"
           autoSize
           onChange={handleOnFormChange}
-          name="episodeName"
-          value={episodeForm.episodeName}
+          name="podcastName"
+          value={episodeForm.podcastName}
         />
         <div style={{ margin: "24px 0" }} />
         <h2 className="mb-2"> Episode Description</h2>
         <TextArea
           placeholder="Autosize height with minimum and maximum number of lines"
           autoSize={{ minRows: 2, maxRows: 6 }}
-          value={episodeForm.episodeDescription}
+          value={episodeForm.podcastDescription}
           onChange={handleOnFormChange}
-          name="episodeDescription"
+          name="podcastDescription"
         />
         <div style={{ margin: "24px 0" }} />
       </div>
@@ -114,10 +116,10 @@ const Page = () => {
         <p className="ant-upload-text">
           Click or drag file to this area to upload
         </p>
-        <p className="ant-upload-hint">Supported formats: mp3, wav, aac, flac, alac, ogg, wma, aiff, pcm, opus, amr, atrac, dts, dsd, midi, m4a.</p>
+        <p className="ant-upload-hint">Supported formats: jpg, jpeg, png, gif, bmp, tiff, svg, webp, heif, heic, raw, ico, psd, eps.</p>
       </Dragger>
       <Button className="min-h-7" onClick={submitEpisode}>
-        Add Episode
+        Create Podcast
       </Button>
     </main>
   );
