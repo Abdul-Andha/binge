@@ -3,10 +3,11 @@ import { redirect } from "next/navigation";
 import { handleLogout } from "../(protected)/actions";
 import { Button, Drawer, Menu } from "antd";
 import {
-  SettingOutlined,
-  RiseOutlined,
   LogoutOutlined,
   MenuOutlined,
+  UploadOutlined,
+  SearchOutlined,
+  PlayCircleOutlined
 } from "@ant-design/icons";
 import { useRouter } from "next/navigation";
 const imageURL =
@@ -15,17 +16,17 @@ const imageURL =
 const items = [
   {
     key: "0",
-    icon: <SettingOutlined />,
+    icon: <SearchOutlined />,
     label: "Listen to podcasts",
   },
   {
     key: "1",
-    icon: <RiseOutlined />,
+    icon: <UploadOutlined />,
     label: "Upload new podcast",
   },
   {
     key: "2",
-    icon: <LogoutOutlined />,
+    icon: <PlayCircleOutlined />,
     label: "Record",
   },
   {
