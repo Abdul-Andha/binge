@@ -3,12 +3,13 @@ import { login } from "./actions";
 import { useState } from "react";
 import { Button, Form, Input } from "antd";
 import { useRouter } from "next/navigation";
+import { useUserAuth } from "@/app/context/userAuth";
 
 export default function Login() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [user, setUser] = useState(null);
   const router = useRouter();
+  const { user, setUser } = useUserAuth();
 
   const handleSubmit = async (values) => {
     setLoading(true);
